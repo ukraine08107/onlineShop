@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/header :: head">
+    <meta charset="ISO-8859-1">
+    <title>Online shop</title>
+</head>
+<body>
+<div th:include="fragments/banner :: nav (all)"
+     style="margin-top: 50px; margin-bottom: 50px !important;"></div>
+<div class="container">
+    <thead class="thead-light">
+    <form th:action="@{/updateBalance}" method="post">
+        <input type="number" placeholder="Enter your new balance" name="balance">
+        <input type="submit" value="Update balance" class="btn btn-success"/>
+    </form>
+
+
+    </thead>
+
+    <tbody>
+
+    </tbody>
+</div>
+</body>
+</html>

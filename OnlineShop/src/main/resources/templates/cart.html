@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="fragments/header :: head">
+    <meta charset="ISO-8859-1">
+    <title>Online shop</title>
+</head>
+<body>
+<div th:include="fragments/banner :: nav (all)"
+     style="margin-top: 50px; margin-bottom: 50px !important;"></div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+            <th scope="col">Discount</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <form>
+            <tr th:each="item : ${cartItems}" scope="row">
+                <td th:text="${item.id}"/>
+                <td th:text="${item.name}"/>
+                <td th:text="${item.category}"/>
+                <td th:text="${item.type}"/>
+                <td th:text="${item.price}"/>
+                <td th:text="${item.discount}"/>
+                <td>
+                    <input type="submit" value="Remove" class="btn btn-success"/>
+                </td>
+            </tr>
+        </form>
+        </tbody>
+    </table>
+    <form>
+        <input type="submit" value="Place order" class="btn btn-success"/>
+    </form>
+</div>
+</body>
+</html>

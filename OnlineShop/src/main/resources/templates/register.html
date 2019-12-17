@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+    <meta charset="utf-8">
+
+</head>
+<body>
+<div class="container">
+
+    <div class="col-md-6  offset-md-3" style="margin-top: 20%;">
+        <h2>Welcome to our Online Shop</h2><br/><br/>
+
+        <form class="text-center" th:action="@{/register/newUser}" >
+            <input type="text" name="firstName" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name"><br/>
+            <input type="text" name="lastName"  class="form-control" aria-describedby="emailHelp" placeholder="Enter last name"><br/>
+            <input type="email" name="email" class="form-control" placeholder="name@example.com"><br/>
+            <input type="text" class="form-control" name="telephoneNumber" placeholder="Tel. Number"><br/>
+            <input type="password" class="form-control" name="password" placeholder="Password"><br/>
+            <input type="password" class="form-control" name="passwordRepeat"  placeholder="Repeat password"><br/>
+            <input type="submit" class="btn btn-success btn-block"th:value="Register">
+        </form>
+        <br>
+
+
+    </div>
+
+</div>
+</body>
+</html>

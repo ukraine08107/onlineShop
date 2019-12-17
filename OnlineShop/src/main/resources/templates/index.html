@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head">
+    <meta charset="utf-8">
+</head>
+<body>
+<div th:include="fragments/banner :: nav (all)"
+     style="margin-top: 50px; margin-bottom: 50px !important;"></div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <!--<th scope="col">Category</th>-->
+        <th scope="col">
+            <!---------------------------------------------------------------------------->
+
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Category
+                </button>
+                <form th:action="@{/sortBy/{name}}">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                        <button type="submit" name="computersAndLaptops" class="dropdown-item">Computers and laptops
+                        </button>
+
+                        <button class="dropdown-item" type="button">Smartphones</button>
+                        <button class="dropdown-item" type="button">Books</button>
+                        <button class="dropdown-item" type="button">All</button>
+                    </div>
+                </form>
+            </div>
+        </th>
+        <!---------------------------------------------------------------------------->
+        <th scope="col">Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Discount</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="product : ${allProducts}" scope="row">
+        <form th:action="@{/addToCart/{id}(id=${product.id})}" method="get">
+
+            <td th:text="${product.id}"/>
+            <td th:text="${product.name}"/>
+            <td th:text="${product.category}"/>
+            <td th:text="${product.type}"/>
+            <td th:text="${product.price}"/>
+            <td th:text="${product.discount}"/>
+            <td>
+                <input type="submit" value="Add to cart" class="btn btn-success"/>
+            </td>
+        </form>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
